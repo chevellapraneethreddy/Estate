@@ -1,0 +1,79 @@
+:root {
+  /* Font Family */
+  --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Common Spacing & Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  --transition-fast: 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Premium Light Theme (Default) - Apple, Stripe & Zillow Aesthetic */
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f9fafb;
+  --bg-glass: rgba(255, 255, 255, 0.75);
+  --border-color: rgba(0, 0, 0, 0.05);
+  --border-color-hover: rgba(0, 0, 0, 0.1);
+  --glass-border: rgba(0, 0, 0, 0.04);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --color-primary: #10b981;       /* Emerald green accent only for highlights */
+  --color-primary-hover: #059669;
+  --color-primary-light: rgba(16, 185, 129, 0.04);
+  
+  --color-accent: #0ea5e9;        /* Sky blue / Cyan */
+  --color-accent-hover: #0284c7;
+  --color-accent-light: rgba(14, 165, 233, 0.04);
+
+  --color-warning: #f59e0b;       /* Amber */
+  --color-danger: #ef4444;        /* Red */
+  --color-success: #10b981;       /* Emerald */
+  --color-info: #0ea5e9;          /* Info */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.02);
+  --shadow-glow: 0 0 16px rgba(16, 185, 129, 0.03), 0 0 24px rgba(14, 165, 233, 0.02);
+
+  --glass-blur: blur(16px);
+}
+
+/* Dark mode overrides (User toggleable) */
+[data-theme="dark"] {
+  --bg-primary: #030712;
+  --bg-secondary: #0b0f19;
+  --bg-tertiary: #111827;
+  --bg-glass: rgba(11, 15, 25, 0.7);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.06);
+
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --text-inverse: #030712;
+
+  --color-primary: #10b981;
+  --color-primary-hover: #059669;
+  --color-primary-light: rgba(16, 185, 129, 0.08);
+  
+  --color-accent: #06b6d4;
+  --color-accent-hover: #0891b2;
+  --color-accent-light: rgba(6, 182, 212, 0.08);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 30px rgba(0, 0, 0, 0.4), 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6), 0 10px 20px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 30px rgba(6, 182, 212, 0.15), 0 0 50px rgba(16, 185, 129, 0.05);
+}
+

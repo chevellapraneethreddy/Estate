@@ -1,0 +1,51 @@
+/* Dashboard styles and layouts adjustments */
+.dashboard-container {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+@media (max-width: 992px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+}
+
+.upload-row-flex {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+@media (max-width: 768px) {
+  .upload-row-flex {
+    flex-direction: column;
+  }
+}
+
+.whatsapp-row-flex {
+  display: flex;
+  gap: 28px;
+  flex-direction: row;
+}
+
+@media (max-width: 1200px) {
+  .whatsapp-row-flex {
+    flex-direction: column-reverse;
+  }
+  .phone-simulator-container {
+    max-width: 100% !important;
+    align-self: stretch !important;
+  }
+}
+
+.landing-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .landing-nav {
+    display: none;
+  }
+}

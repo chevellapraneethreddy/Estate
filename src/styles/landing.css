@@ -1,0 +1,336 @@
+/* Premium Landing Page & Property Site Styles */
+@import './variables.css';
+
+/* Hero Section */
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  gap: 60px;
+  min-height: calc(100vh - 70px);
+}
+
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column;
+    padding: 60px 24px;
+    gap: 40px;
+    text-align: center;
+  }
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
+}
+
+@media (max-width: 1024px) {
+  .hero-left {
+    align-items: center;
+    max-width: 100%;
+  }
+}
+
+.hero-left h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .hero-left h1 {
+    font-size: 2.5rem;
+  }
+}
+
+.hero-left p {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.trust-indicators {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+/* Hero Showcase Mockup (Right) */
+.hero-right {
+  flex: 1.1;
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.dashboard-mockup {
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating Mockup Cards */
+.mock-card {
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  z-index: 10;
+  position: relative;
+}
+
+.mock-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.mock-card-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Grid overlay for mockup */
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* Connecting arrows keyframes */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.flow-connector-line {
+  stroke-dasharray: 6, 4;
+  animation: dash 1s linear infinite;
+}
+
+/* Comparison Slider */
+.compare-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.compare-slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  user-select: none;
+  box-shadow: var(--shadow-lg);
+  cursor: ew-resize;
+}
+
+@media (max-width: 768px) {
+  .compare-slider-wrapper {
+    height: 340px;
+  }
+}
+
+.compare-panel-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: var(--bg-secondary);
+}
+
+.compare-panel-right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+}
+
+.compare-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-primary);
+  z-index: 10;
+  cursor: ew-resize;
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.compare-handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  border: 4px solid var(--bg-secondary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: var(--shadow-md);
+  cursor: ew-resize;
+}
+
+/* Premium Features section */
+.features-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.feature-premium-card {
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.feature-premium-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-color-hover);
+  box-shadow: var(--shadow-md);
+}
+
+/* Social Proof Stats */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.stats-card {
+  padding: 24px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stats-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1;
+}
+
+/* FAQs */
+.faq-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-answer {
+  padding: 0 20px 16px 20px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+/* Property Page sections */
+.prop-hero-header {
+  padding: 40px 24px 20px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.prop-grid-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 0 24px 60px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .prop-grid-body {
+    grid-template-columns: 2fr 1fr;
+  }
+}

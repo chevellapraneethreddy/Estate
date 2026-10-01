@@ -1,0 +1,3 @@
+[submodule "backend/services/hunyuan3d/repo"]
+	path = backend/services/hunyuan3d/repo
+	url = https://github.com/Tencent-Hunyuan/Hunyuan3D-2

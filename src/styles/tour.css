@@ -1,0 +1,316 @@
+/* 3D Walkthrough Styles */
+.tour-viewport {
+  width: 100%;
+  height: 320px;
+  background: radial-gradient(circle at center, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  perspective: 700px;
+  user-select: none;
+  cursor: grab;
+}
+
+.tour-viewport:active {
+  cursor: grabbing;
+}
+
+.room-3d-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: translateZ(50px) rotateX(0deg) rotateY(0deg);
+}
+
+/* 3D Room Planes */
+.plane-3d {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.4);
+  transition: background-color var(--transition-slow), border-color var(--transition-slow);
+}
+
+.plane-floor {
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  transform: rotateX(90deg) translateZ(150px);
+}
+
+.plane-ceiling {
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  transform: rotateX(-90deg) translateZ(150px);
+  background-color: #1e293b;
+}
+
+.plane-back {
+  width: 500px;
+  height: 300px;
+  margin-left: -250px;
+  margin-top: -150px;
+  transform: translateZ(-250px);
+}
+
+.plane-left {
+  width: 500px;
+  height: 300px;
+  margin-left: -250px;
+  margin-top: -150px;
+  transform: rotateY(90deg) translateZ(-250px);
+}
+
+.plane-right {
+  width: 500px;
+  height: 300px;
+  margin-left: -250px;
+  margin-top: -150px;
+  transform: rotateY(-90deg) translateZ(-250px);
+}
+
+/* Texture Styles depending on Interior Style */
+/* Floor Textures */
+.floor-modern {
+  background-color: #334155;
+  background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+.floor-luxury {
+  background-color: #f1f5f9;
+  background-image: 
+    radial-gradient(circle at 100% 150%, #f1f5f9 24%, #cbd5e1 25%, #cbd5e1 28%, #f1f5f9 29%, #f1f5f9 36%, #cbd5e1 36%, #cbd5e1 40%, transparent 40%),
+    radial-gradient(circle at 0% 150%, #f1f5f9 24%, #cbd5e1 25%, #cbd5e1 28%, #f1f5f9 29%, #f1f5f9 36%, #cbd5e1 36%, #cbd5e1 40%, transparent 40%),
+    radial-gradient(circle at 50% 100%, #cbd5e1 10%, #cbd5e1 14%, #f1f5f9 15%, #f1f5f9 24%, #cbd5e1 25%, #cbd5e1 28%, #f1f5f9 29%, #f1f5f9 38%, #cbd5e1 39%, #cbd5e1 44%, transparent 44%),
+    radial-gradient(circle at 100% 50%, #cbd5e1 5%, #cbd5e1 8%, #f1f5f9 9%, #f1f5f9 14%, #cbd5e1 15%, #cbd5e1 18%, #f1f5f9 19%, #f1f5f9 28%, #cbd5e1 29%, #cbd5e1 34%, transparent 34%),
+    radial-gradient(circle at 0% 50%, #cbd5e1 5%, #cbd5e1 8%, #f1f5f9 9%, #f1f5f9 14%, #cbd5e1 15%, #cbd5e1 18%, #f1f5f9 19%, #f1f5f9 28%, #cbd5e1 29%, #cbd5e1 34%, transparent 34%);
+  background-size: 100px 50px;
+}
+.floor-minimalist {
+  background-color: #e2e8f0;
+}
+.floor-scandinavian {
+  background-color: #fcd34d; /* Wood tone */
+  background-image: repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0px, rgba(0,0,0,0.03) 2px, transparent 2px, transparent 40px);
+}
+.floor-contemporary {
+  background-color: #1e293b;
+  background-image: linear-gradient(45deg, #0f172a 25%, transparent 25%), linear-gradient(-45deg, #0f172a 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #0f172a 75%), linear-gradient(-45deg, transparent 75%, #0f172a 75%);
+  background-size: 40px 40px;
+}
+.floor-indian {
+  background-color: #c2410c; /* Terracotta red */
+  background-image: linear-gradient(rgba(0,0,0,.15) 2px, transparent 2px), linear-gradient(90deg, rgba(0,0,0,.15) 2px, transparent 2px);
+  background-size: 25px 25px;
+}
+
+/* Wall Textures */
+.wall-modern { background-color: #1e293b; border-color: #334155; }
+.wall-luxury { background-color: #0f172a; border-left: 20px solid #fbbf24; border-right: 20px solid #fbbf24; }
+.wall-minimalist { background-color: #f8fafc; border-color: #cbd5e1; }
+.wall-scandinavian { background-color: #e0f2fe; }
+.wall-contemporary { background-color: #475569; }
+.wall-indian { background-color: #fef3c7; border-bottom: 25px solid #b45309; }
+
+/* 3D Furniture Items */
+.furniture-3d {
+  position: absolute;
+  transform-style: preserve-3d;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 4px;
+  color: var(--text-primary);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  transition: all var(--transition-slow);
+}
+
+.furniture-style-modern { background: #334155; border-color: #64748b; color: #fff; }
+.furniture-style-luxury { background: #1e1b4b; border-color: #fbbf24; color: #fbbf24; box-shadow: 0 10px 25px rgba(251,191,36,0.15); }
+.furniture-style-minimalist { background: #f8fafc; border-color: #e2e8f0; color: #475569; }
+.furniture-style-scandinavian { background: #fafaf9; border-color: #d6d3d1; color: #44403c; border-bottom: 4px solid #a8a29e; }
+.furniture-style-contemporary { background: #0f172a; border-color: #38bdf8; color: #38bdf8; }
+.furniture-style-indian { background: #78350f; border-color: #d97706; color: #fef3c7; }
+
+/* Hotspots in 3D Space */
+.hotspot-3d {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: var(--color-primary);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.6);
+  z-index: 10;
+  transform: translate(-50%, -50%) rotateY(var(--hotspot-rot, 0deg));
+  transition: transform 0.2s, background 0.2s;
+  animation: pulseGlow 2s infinite;
+}
+
+.hotspot-3d:hover {
+  background: var(--color-accent);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.hotspot-3d::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+/* Floor Move Hotspots */
+.move-hotspot {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: rgba(16, 185, 129, 0.2);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: rotateX(90deg) translateZ(0) scale(1);
+  transition: all 0.3s;
+}
+
+.move-hotspot:hover {
+  background: rgba(16, 185, 129, 0.4);
+  transform: rotateX(90deg) translateZ(0) scale(1.15);
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+.move-hotspot-inner {
+  width: 16px;
+  height: 16px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  animation: walkBob 1.5s infinite ease-in-out;
+}
+
+/* Navigation Indicator overlay */
+.nav-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border-color);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  z-index: 20;
+  box-shadow: var(--shadow-lg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Controls Overlay */
+.viewport-overlay-controls {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+}
+
+.viewport-overlay-left {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 20;
+}
+
+.overlay-btn {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.overlay-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* Night Overlay Layer */
+.night-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.45);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 1s ease;
+  opacity: 0;
+}
+
+.night-overlay.active {
+  opacity: 1;
+}
+
+/* Scanning Overlay for Floor plan to 3D Generation */
+.scanning-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  animation: gridPulse 4s infinite ease-in-out;
+}
+
+.scan-laser {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0) 0%, #10b981 50%, rgba(16, 185, 129, 0) 100%);
+  box-shadow: 0 0 15px #10b981;
+  pointer-events: none;
+  z-index: 10;
+  animation: scanLine 3s infinite linear;
+}
